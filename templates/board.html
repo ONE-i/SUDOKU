@@ -1,0 +1,16 @@
+{% extends 'index.html'%}
+
+<!-- Game Board -->
+{% block gameBoard %}
+    {% for row in board%}
+        <tr>
+        {% for i in row %}
+            {% if i != 0 %} 
+            <td><input readonly value="{{i}}"></td>
+            {% elif i == 0 %}
+            <td><input maxlength="1" name="numonly"></td>
+            {% endif %}
+        {% endfor %}
+        </tr>
+    {% endfor %}
+{% endblock %}

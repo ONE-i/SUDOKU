@@ -1,0 +1,50 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: #1A759F;
+}
+
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    font-size: 11vh;
+    text-align: center;
+    margin: 0;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+
+#board input {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+input[name="numonly"] {
+    color: #1A759F;
+}
+
+.done button{
+    border: none;
+    border-radius: 50px;
+    padding: 20px 30px 20px 30px;
+    margin-top: 40px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #1A759F;
+    background-color: white;
+
+}
+
+.done button:hover{
+    color: #2a8dbb;
+}
+
+.done button:active{
+    background-color: rgba(255, 255, 255, 0.548);
+}

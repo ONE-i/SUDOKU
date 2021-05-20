@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SUDOKU</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'css/main.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <center>
+      <h1>SUDOKU</h1>
+      <form>
+        <!-- Game Board -->
+        <table id="board">
+          <tbody>
+            {% block gameBoard %}{% endblock %}
+          </tbody>
+        </table>
+        <!-- Done Button -->
+        <div class="done">
+            <button type="button">Done</button>
+        </div>
+      </form>
+    </center>
+  </body>
+  <script>
+    $(function () {
+      $("input[name='numonly']").on("input", function (e) {
+        $(this).val(
+          $(this)
+            .val()
+            .replace(/[^0-9]/g, "")
+        );
+      });
+    });
+  </script>
+</html>
