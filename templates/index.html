@@ -11,35 +11,57 @@
       href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
       rel="stylesheet"
     />
-    <script src="
-https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
+
   <body>
     <center>
       <h1>SUDOKU</h1>
+      <!-- Game Board -->
+      <table id="board">
+        <tbody>
+          {% block gameBoard %}{% endblock %}
+        </tbody>
+      </table>
+      <!-- Done Button -->
       <form>
-        <!-- Game Board -->
-        <table id="board">
-          <tbody>
-            {% block gameBoard %}{% endblock %}
-          </tbody>
-        </table>
-        <!-- Done Button -->
-        <div class="done">
-            <button type="button">Done</button>
-        </div>
+        <input type="button" id="done" value="Done" onclick="getBoardArray()" />
       </form>
     </center>
   </body>
   <script>
-    $(function () {
-      $("input[name='numonly']").on("input", function (e) {
-        $(this).val(
-          $(this)
-            .val()
-            .replace(/[^0-9]/g, "")
-        );
+    function onlyNumberKey(evt) {
+
+      var board = {{ board }}
+
+    // Only ASCII character in that range allowed
+    var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 49 || ASCIICode > 57))
+      return false;
+    return true;
+    }
+  </script>
+  <script>
+    function getBoardArray() {
+      var boardArray = [];
+      $("table#board tr").each(function () {
+        var rowDataArray = [];
+        var actualData = $(this).find("input");
+        actualData.each(function () {
+          if (parseInt($(this).val()) >= 1) {
+            rowDataArray.push(parseInt($(this).val()));
+          } else {
+            rowDataArray.push(0);
+          }
+        });
+        boardArray.push(rowDataArray);
       });
-    });
+      $.ajax({
+        url: "/check_board",
+        type: "POST",
+        data: JSON.stringify(boardArray),
+        contentType: "application/json; charset=utf-8"
+      });
+    }
   </script>
 </html>

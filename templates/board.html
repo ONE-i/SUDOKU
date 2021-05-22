@@ -8,9 +8,10 @@
             {% if i != 0 %} 
             <td><input readonly value="{{i}}"></td>
             {% elif i == 0 %}
-            <td><input maxlength="1" name="numonly"></td>
+            <td><input maxlength="1" name="userInput" onkeypress="return onlyNumberKey(event)"></td>
             {% endif %}
         {% endfor %}
         </tr>
     {% endfor %}
 {% endblock %}
+

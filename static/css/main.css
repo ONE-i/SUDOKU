@@ -25,11 +25,11 @@ h1 {
     font-weight: bold;
 }
 
-input[name="numonly"] {
+input[name="userInput"] {
     color: #1A759F;
 }
 
-.done button{
+input[id="done"]{
     border: none;
     border-radius: 50px;
     padding: 20px 30px 20px 30px;
@@ -41,10 +41,10 @@ input[name="numonly"] {
 
 }
 
-.done button:hover{
+input[id="done"]:hover{
     color: #2a8dbb;
 }
 
-.done button:active{
+input[id="done"]:active{
     background-color: rgba(255, 255, 255, 0.548);
 }
