@@ -27,7 +27,9 @@ def checkBoard():
         # This is where new board array send back from client side
         # Use 'board' to check if board is complete 
         board = request.get_json()
-        print(board)
+        # Test console
+        for i in board:
+            print(i)
         return 'OKAY'
     else:
         return render_template("board.html", board=boardTest)

@@ -31,9 +31,6 @@
   </body>
   <script>
     function onlyNumberKey(evt) {
-
-      var board = {{ board }}
-
     // Only ASCII character in that range allowed
     var ASCIICode = (evt.which) ? evt.which : evt.keyCode
     if (ASCIICode > 31 && (ASCIICode < 49 || ASCIICode > 57))

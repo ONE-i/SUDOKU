@@ -1,50 +1,104 @@
-body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    background-color: #1A759F;
+:root {
+    --main-color: #1a759f;
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--main-color);
+}
 
 h1 {
-    font-family: 'Fredoka One', cursive;
-    color: white;
-    font-size: 11vh;
-    text-align: center;
-    margin: 0;
-    padding-top: 70px;
-    padding-bottom: 70px;
+  font-family: "Fredoka One", cursive;
+  color: white;
+  font-size: 11vh;
+  text-align: center;
+  margin: 0;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
+#board {
+  border-collapse: collapse;
+}
+
+#board tr:nth-child(3) td {
+  border-bottom: 3px solid var(--main-color);
+}
+
+#board tr:nth-child(6) td {
+  border-bottom: 3px solid var(--main-color);
+}
+
+#board td:nth-child(3) {
+  border-right: 3px solid var(--main-color);
+}
+
+#board td:nth-child(6) {
+  border-right: 3px solid var(--main-color);
+}
+
+
+#board tr:nth-child(1) td:nth-child(1) input{
+    border-top-left-radius: 15px;
+    border-style: none;
+    width: 54px;
+    height: 54px;
+}
+
+#board tr:nth-child(1) td:nth-child(9) input{
+    border-top-right-radius: 15px;
+    border-style: none;
+    width: 54px;
+    height: 54px;
+}
+
+#board tr:nth-child(9) td:nth-child(1) input{
+    border-bottom-left-radius: 15px;
+    border-style: none;
+    width: 54px;
+    height: 54px;
+}
+
+#board tr:nth-child(9) td:nth-child(9) input{
+    border-bottom-right-radius: 15px;
+    border-style: none;
+    width: 54px;
+    height: 54px;
+}
 
 #board input {
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #5A5E5A;
 }
 
-input[name="userInput"] {
-    color: #1A759F;
+#board input[name="userInput"] {
+  color: var(--main-color);
 }
 
-input[id="done"]{
-    border: none;
-    border-radius: 50px;
-    padding: 20px 30px 20px 30px;
-    margin-top: 40px;
-    font-size: 25px;
-    font-weight: bold;
-    color: #1A759F;
-    background-color: white;
-
+input[id="done"] {
+  border: none;
+  border-radius: 50px;
+  padding: 20px 30px 20px 30px;
+  margin-top: 40px;
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--main-color);
+  background-color: white;
 }
 
-input[id="done"]:hover{
-    color: #2a8dbb;
+input[id="done"]:hover {
+    background: white;
+    border-top: 1px solid rgba(255,255,255,.5);
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.24);
+    position: relative;
 }
-
-input[id="done"]:active{
-    background-color: rgba(255, 255, 255, 0.548);
+input[id="done"]:active {
+    box-shadow: none;
+    top: 1px;
 }
