@@ -1,3 +1,17 @@
+// Generating random color using HSL color
+$(document).ready(function () {
+    $(":root").css("--main-color", function () {
+        // Getting a random integer between two values, inclusive
+        const randomInt = (min, max) => {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        };
+        var h = randomInt(0, 360);
+        var s = randomInt(40, 60);
+        var l = randomInt(70, 90);
+        return `hsl(${h},${s}%,${l}%)`;
+    })
+});
+
 function onlyNumberKey(evt) {
     // Only ASCII character in that range allowed
     var ASCIICode = evt.which ? evt.which : evt.keyCode;
@@ -36,7 +50,7 @@ function checkResult() {
         type: "POST",
         data: JSON.stringify(boardArray),
         contentType: "application/json; charset=utf-8",
-        success: function(message) {
+        success: function (message) {
             $("div.message-container h3").html(message);
             $("div.message-container h3").css("display", "inline");
         }

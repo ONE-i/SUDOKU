@@ -119,5 +119,5 @@ form {
 }
 .submit-btn:active {
   box-shadow: none;
-  top: 1px;
+  top: 2px;
 }

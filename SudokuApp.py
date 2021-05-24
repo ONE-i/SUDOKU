@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, jsonify
+from flask import Flask, render_template, url_for, request, jsonify, redirect
 
 
 boardTest = [
@@ -60,15 +60,15 @@ def checkBoard():
             print(i)
         return message
     else:
-        return render_template("board.html", board=boardTest)
+        return redirect('/')
 
 
 @app.route("/new_board", methods=['GET'])
 def getNewBoard():
     if request.method == 'GET':
-        return jsonify(board = render_template("new_board.html", board=newBoard))
+        return jsonify(board = render_template("new_board.html", board = newBoard))
     else:
-        return render_template("board.html", board=boardTest)
+        return redirect('/')
 
 
 @app.route("/result", methods=['GET'])
@@ -76,7 +76,7 @@ def showResult():
     if request.method == 'GET':
         return jsonify(board = result)
     else:
-        return render_template("board.html", board=boardTest)
+        return redirect('/')
 
 
 if __name__ == "__main__":
